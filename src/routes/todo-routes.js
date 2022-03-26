@@ -5,7 +5,7 @@ import {
   updateTodo,
   deleteTodo,
   deleteAll,
-} from "../controllers/todo";
+} from "../controllers/todo/index.js";
 
 const todoRoutes = (app) => {
   const Router = expressRouter();

@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon --exec babel-node src/index.js",
-    "start": "nodemon --exec babel-node src/index.js"
+    "dev" : "nodemon NODE_ENV=production src/index.js",
+    "start": "nodemon NODE_ENV=development src/index.js"
   },
   "keywords": [],
   "author": "rodinshrestha@gmail.com",

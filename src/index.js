@@ -1,9 +1,10 @@
 import express from "express";
 import cors from "cors";
 import dontenv from "dotenv";
-import connection from "./connection";
+
 import morgan from "morgan";
-import todoRoutes from "./routes/todo-routes";
+import todoRoutes from "./routes/todo-routes.js";
+import connection from "./connection/index.js";
 
 dontenv.config();
 
