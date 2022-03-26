@@ -3,6 +3,7 @@ import cors from "cors";
 import dontenv from "dotenv";
 import connection from "./connection";
 import morgan from "morgan";
+import todoRoutes from "./routes/todo-routes";
 
 dontenv.config();
 
@@ -15,12 +16,22 @@ app.use(express.json());
 /**Logger middleware */
 app.use(morgan("tiny"));
 
+/**
+ * Routes
+ */
+todoRoutes(app);
+
 app.get("/", (req, res) => {
   res.status(200).send("🚀 Hello world");
 });
 
 app.use("*", (req, res) => {
   res.status(404).send("path not found");
+});
+
+app.use((err, req, res) => {
+  const { status, msg } = err;
+  res.status(status || 500).json({ message: msg });
 });
 
 const port = process.env.PORT || 5000;
