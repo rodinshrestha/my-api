@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 /**Logger middleware */
-app.use(morgan("tiny"));
+if (process.env.NODE_ENV === "development") app.use(morgan("tiny"));
 
 /**
  * Routes
